@@ -40,6 +40,14 @@ down in order to expand or compress the tonal range displayed."
   :options '(high normal low)
   :group 'solarized)
 
+(defcustom solarized-termtrans nil
+  "If you use a terminal emulator with a transparent background
+and Solarized isn't displaying the background color
+transparently, set this to 1 and Solarized will use the
+default (transparent) background of the terminal emulator."
+  :type 'boolean
+  :group 'solarized)
+
 (defcustom solarized-broken-srgb (if (and (eq system-type 'darwin)
                                           (eq window-system 'ns))
                                      t
@@ -114,7 +122,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
         (rotatef base01 base1)
         (rotatef base00 base0))
       (let ((back base03))
-        (cond ((< (display-color-cells) 16)
+        (cond ((or solarized-termtrans
+                   (< (display-color-cells) 16))
                (setf back nil))
               ((eq 'high solarized-contrast)
                (let ((orig-base3 base3))
@@ -143,7 +152,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
               (bg-violet `(:background ,violet))
               (bg-blue `(:background ,blue))
               (bg-cyan `(:background ,cyan))
-              
+
               (fg-base03 `(:foreground ,base03))
               (fg-base02 `(:foreground ,base02))
               (fg-base01 `(:foreground ,base01))
