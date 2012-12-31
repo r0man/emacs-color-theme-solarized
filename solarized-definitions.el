@@ -214,6 +214,10 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (shadow ((t (,@fg-base01))))
              (trailing-whitespace ((t (,@fmt-revr ,@fg-red))))
              (vertical-border ((t (,@fg-base0))))
+             ;; clojure-test-mode
+             (clojure-test-error-face ((t (,@bg-orange ,@fg-base3))))
+             (clojure-test-failure-face ((t (,@bg-red ,@fg-base3))))
+             (clojure-test-success-face ((t (,@bg-green ,@fg-base3))))
              ;; comint
              (comint-highlight-prompt ((t (,@fg-blue))))
              ;; compilation
