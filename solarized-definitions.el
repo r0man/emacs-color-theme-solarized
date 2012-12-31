@@ -122,8 +122,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
         (rotatef base01 base1)
         (rotatef base00 base0))
       (let ((back base03))
-        (cond ((or solarized-termtrans
-                   (< (display-color-cells) 16))
+        (cond ((< (display-color-cells) 16)
                (setf back nil))
               ((eq 'high solarized-contrast)
                (let ((orig-base3 base3))
@@ -188,6 +187,13 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
               (fmt-revb `(:weight ,bold  :slant normal  :underline nil        :inverse-video t))
               (fmt-revbb `(:weight ,bright-bold :slant normal :underline nil  :inverse-video t))
               (fmt-revbbu `(:weight ,bright-bold :slant normal  :underline ,underline :inverse-video t)))
+          (when solarized-termtrans
+            (let ((bg-transparent '(:background nil)))
+              (setf bg-back bg-transparent
+                    bg-base00 bg-transparent
+                    bg-base01 bg-transparent
+                    bg-base02 bg-transparent
+                    bg-base03 bg-transparent)))
           `((;; basic
              (default ((t (,@fg-base0 ,@bg-back)))) ; Normal
              (cursor ((t (,@fg-base03 ,@bg-base0)))) ; Cursor
