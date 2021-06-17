@@ -65,8 +65,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
 ;;        that Emacs seems to dislike
 (defvar solarized-colors           ; ANSI(Solarized terminal)
   ;; name     sRGB      Gen RGB   256       16              8
-  '((base03  "#141b23" "#042028" "#1c1c1c" "brightblack"   "black")
-    (base02  "#141b23" "#0a2832" "#262626" "black"         "black")
+  '((base03  "#111820" "#042028" "#1c1c1c" "brightblack"   "black")
+    (base02  "#2B323A" "#0a2832" "#262626" "black"         "black")
     (base01  "#586e75" "#465a61" "#585858" "brightgreen"   "green")
     (base00  "#657b83" "#52676f" "#626262" "brightyellow"  "yellow")
     (base0   "#839496" "#708183" "#808080" "brightblue"    "blue")
@@ -208,7 +208,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (cursor ((t (,@fg-base03 ,@bg-base0)))) ; Cursor
              (error ((t (,@fmt-bold ,@fg-red)))) ; Error
              (escape-glyph-face ((t (,@fg-red))))
-             (fringe ((t (,@fg-base01 ,@bg-base02))))
+             ;; (fringe ((t (,@fg-base01 ,@bg-base02))))
+             (fringe ((t (,@fg-base01 ,@bg-base03))))
              (linum ((t (,@fg-base01 ,@bg-base02))))
              (header-line ((t (,@fg-base0 ,@bg-base02 ,@fmt-revbb)))) ; Pmenu
              (highlight ((t (,@bg-base02))))
